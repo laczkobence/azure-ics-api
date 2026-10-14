@@ -1,12 +1,16 @@
 import os
-import pyodbc
+import pymssql
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
 def get_connection():
-    conn_str = os.environ["SQL_CONNECTION_STRING"]
-    return pyodbc.connect(conn_str)
+    return pymssql.connect(
+        server=os.environ["DB_SERVER"],
+        user=os.environ["DB_USER"],
+        password=os.environ["DB_PASSWORD"],
+        database=os.environ["DB_NAME"]
+    )
 
 
 @app.route("/")
