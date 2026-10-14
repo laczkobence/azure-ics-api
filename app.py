@@ -8,7 +8,7 @@ app = Flask(__name__)
 ai_client = AzureOpenAI(
     api_key=os.environ.get("AZURE_AI_KEY"),
     azure_endpoint=os.environ.get("AZURE_AI_ENDPOINT"),
-    api_version="2024-12-01-preview"
+    api_version="2025-01-01-preview"
 )
 
 def get_connection():
